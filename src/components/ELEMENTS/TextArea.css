@@ -1,0 +1,66 @@
+.textArea{
+    padding:15px 20px;
+    border: 1px solid #1b7cc2;
+    border-radius:4px;
+    background-color: transparent;
+    margin:0px 0px 30px 0px;
+    outline:none;
+
+    width:400px;
+    height: 250px;
+    
+    display:block;
+    margin:0 auto;
+    font-size: 14px;
+    color:#929292;
+    font-weight: 550;
+}
+
+label{
+    font-size: smaller;
+    font-weight: 600;
+}
+
+::placeholder{
+    /* text-align: center; */
+    font-size:13px;
+    opacity:0.5
+}
+
+.textArea:focus{
+    border-color: #dadada
+}
+
+
+
+@media only screen and (max-width: 600px){
+    .textArea{
+        width:200px;
+        height: 150px;
+      }
+}
+@media only screen and (min-width: 600px){
+    .textArea{
+        width:250px;
+        height: 160px;
+      }
+}
+@media only screen and (min-width: 768px){
+    .textArea{
+        width:300px;
+        height: 200px;
+      }
+}
+@media only screen and (min-width: 992px){
+    .textArea{
+        width:380px;
+        height: 250px;
+      }
+
+}
+@media only screen and (min-width: 1200px){
+  .textArea{
+    width:400px;
+    height: 250px;
+  }
+}  

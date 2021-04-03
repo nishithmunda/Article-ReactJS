@@ -1,0 +1,30 @@
+#articleLayout{
+    margin-top: .5em;
+    display:flex;
+    flex-direction:row;
+}
+.articleMain{
+    margin-top:4% ;
+    max-width: 90%;
+    height: 90%;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: auto;
+    /* border:2px solid green; */
+      }
+.articleMain ul{
+    list-style:none;
+    margin-right:auto;
+    margin-left:auto;
+} 
+.article_h1{
+    color:#fff;
+    border:1px solid #fff;
+    text-align: center
+}
+.article_h1:hover{
+    color:rgb(236, 188, 188);
+    border:1px solid rgb(236, 188, 188);
+    cursor: pointer;
+}

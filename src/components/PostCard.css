@@ -1,0 +1,62 @@
+.card{
+    background-color: #fff;
+    border-radius:4px;
+    padding:40px;
+    margin-bottom:10px;
+    margin-top:10px;
+    margin-right:auto;
+    margin-left:auto;
+    
+}
+.card p{
+    font-family: 'Fjalla One', sans-serif;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color:rgb(151, 151, 151);
+}
+.card h5{
+    
+    margin-bottom:'10px';
+    color:"rgb(151, 151, 151)";
+}
+.card h3{
+    font-family: 'Fjalla One', sans-serif;
+}
+
+/* .postMain{
+    margin-top:4% ;
+    max-width: 100%;
+    height: 90%;
+    position: relative;
+    overflow: auto;
+    border:2px solid green;
+      } */
+
+
+ 
+@media only screen and (max-width: 600px){
+    .card{
+        width:15em
+    }
+}
+@media only screen and (min-width: 600px){
+    .card{
+        width:30em
+    }
+}
+@media only screen and (min-width: 768px){
+    .card{
+        width:40em
+    }
+}
+@media only screen and (min-width: 992px){
+    .card{
+        width:50em
+    }
+}
+@media only screen and (min-width: 1200px){
+   .card{
+       width:55em
+   }
+}         
