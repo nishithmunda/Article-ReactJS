@@ -17,7 +17,7 @@ function DisplayArticle(){
             setverfiedUser(true)
         }
         const id = jwt(token);
-        console.log("",id)
+        // console.log("",id)
         setloguserid(id.sub)
          }
         catch(error){
