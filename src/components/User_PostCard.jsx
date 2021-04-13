@@ -3,7 +3,6 @@ import './PostCard.css'
 import Button from './ELEMENTS/Button'
 import {Link} from 'react-router-dom' 
 import axios from 'axios'
-import {useHistory} from 'react-router-dom'
 
 function User_PostCard({
   postid,
@@ -16,7 +15,7 @@ function User_PostCard({
   reload
 })
 {
-  let history=useHistory();
+
     return(
      <div className="card" style={{width,height}}>
           <div>

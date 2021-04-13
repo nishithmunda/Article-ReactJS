@@ -9,11 +9,9 @@ import EditPost from './components/FORMS/EditPost'
 import View from './components/View'
 import UserPost from './components/UserPost'
 import Setting from './components/Setting'
-import {BrowserRouter as Router,Route,Switch,NavLink,useHistory,Link} from 'react-router-dom'
+import {BrowserRouter as Router,Route,Switch,NavLink,Link} from 'react-router-dom'
 
 function App() {
-
-  let history=useHistory()
 
   const [loggedUser,setloggedUser]=useState(false)
   function loggedInUser(){ 

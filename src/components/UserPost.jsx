@@ -1,33 +1,14 @@
 import React,{useEffect, useState} from 'react'
 import './DisplayArticle.css'
 import User_PostCard from './User_PostCard'
-import Button from './ELEMENTS/Button'
 import axios from 'axios'
-import jwt from 'jwt-decode'
+import HOC from './HOC'
 
-function UserPost(){
-
-    const [loguserid,setloguserid]=useState('')
-    const [verfiedUser,setverfiedUser]=useState(true)
-    function Accesstoken(){
-        try{
-        const token=localStorage.getItem("token")
-        if(token===null){
-            setverfiedUser(false)
-        }
-        const id = jwt(token);
-        setloguserid(id.sub)
-         }
-
-        catch(error){
-            console.log(error)
-        } 
-    }
-
-
-   
+function UserPost(props){
+   // console.log(props.verifiedUser) 
+   // console.log(props.loguserid) 
+ 
     useEffect(()=>{
-        Accesstoken()
         handlePosts()
         handleUsers()
       },[])
@@ -70,7 +51,7 @@ function UserPost(){
          }
 
         // console.log(typeof(loguserid))
-        if(posts.userId===parseInt(loguserid))
+        if(posts.userId===parseInt(props.loguserid))
         {
             return <li key={posts.id}>
             <User_PostCard title={posts.title} body={posts.body} user={USER} postid={POSTID}/> 
@@ -82,11 +63,11 @@ function UserPost(){
       )  
     return(
     <div className="articleMain">
-       {verfiedUser===false && (
+       {props.verifiedUser===false && (
            <h1> LOG-IN REQUIRED</h1>
        )}  
 
-       {verfiedUser===true && (
+       {props.verifiedUser===true && (
                    <div id="articleLayout">
                    <ul>
                      {articleList}
@@ -99,4 +80,4 @@ function UserPost(){
     )
 
 }
-export default UserPost
+export default HOC(UserPost)

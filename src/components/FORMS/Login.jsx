@@ -3,8 +3,6 @@ import './Login.css'
 import INPUT_LABEL from '../ELEMENTS/InputFieldLabel'
 import Button from '../ELEMENTS/Button'
 import axios from 'axios'
-import { useHistory } from 'react-router-dom'
-import jwt from 'jwt-decode'
 
 function Login(){
   

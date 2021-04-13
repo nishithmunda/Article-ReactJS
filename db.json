@@ -380,17 +380,17 @@
     },
     {
       "userId": 1,
-      "title": "PubG",
-      "category": "eSports",
-      "body": "RE-LAUNCH SOON IN INDIA",
-      "id": 105
-    },
-    {
-      "userId": 1,
-      "title": "IPL",
+      "title": "IPL 2021",
       "category": "Sports",
       "body": "STARTS FROM APRIL",
       "id": 106
+    },
+    {
+      "userId": 1,
+      "title": "PubG NewState",
+      "category": "eSports",
+      "body": "PUBG Corp is gearing up to launch PUBG Mobile India in the next two months.\nNo news regarding Pubg NEW STATE. ",
+      "id": 107
     }
   ],
   "users": [

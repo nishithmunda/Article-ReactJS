@@ -2,31 +2,14 @@ import React,{useEffect, useState} from 'react'
 import './DisplayArticle.css'
 import PostCard from './PostCard'
 import axios from 'axios'
-import jwt from 'jwt-decode'
 import {useHistory} from 'react-router-dom'
+import HOC from './HOC'
 
-function DisplayArticle(){
+function DisplayArticle(props){
+    // console.log(props.verifiedUser) 
     let history=useHistory()
-    const [loguserid,setloguserid]=useState('')
-    const [verfiedUser,setverfiedUser]=useState(false);
-
-    function Accesstoken(){
-        try{
-        const token=localStorage.getItem("token")
-        if(token!==null){
-            setverfiedUser(true)
-        }
-        const id = jwt(token);
-        // console.log("",id)
-        setloguserid(id.sub)
-         }
-        catch(error){
-            console.log(error)
-        } 
-    }
-
+    
     useEffect(()=>{
-        Accesstoken()
         handlePosts()
         handleUsers()
       },[])
@@ -77,7 +60,7 @@ function DisplayArticle(){
     return(
     <div className="articleMain">
          {
-             verfiedUser===true&&(
+             props.verifiedUser===true&&(
                  <h3 className="article_h1" onClick={()=>{history.push("/article/user")}}>EDIT MY POSTS</h3>
              )
          }
@@ -91,4 +74,4 @@ function DisplayArticle(){
     )
 
 }
-export default DisplayArticle
+export default HOC(DisplayArticle)

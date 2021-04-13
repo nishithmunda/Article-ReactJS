@@ -2,8 +2,6 @@
 import './PostCard.css'
 import Button from './ELEMENTS/Button'
 import {Link} from 'react-router-dom' 
-import axios from 'axios'
-
 
 function PostCard({
   postid,

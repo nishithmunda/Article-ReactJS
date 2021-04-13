@@ -4,31 +4,13 @@ import TextArea from '../ELEMENTS/TextArea'
 import Button from '../ELEMENTS/Button'
 import axios from 'axios'
 import {useParams} from 'react-router-dom'
-import jwt from 'jwt-decode'
 import './Create_Edit_article.css'
+import HOC from '../HOC'
 
-function EditPost(){
-
-    const [loguserid,setloguserid]=useState('')
-    const [verfiedUser,setverfiedUser]=useState(true)
-    function Accesstoken(){
-        try{
-        const token=localStorage.getItem("token")
-        if(token===null){
-            setverfiedUser(false)
-        }
-        const id = jwt(token);
-        setloguserid(id.sub)
-         }
-
-        catch(error){
-            console.log(error)
-        } 
-    }
-
+function EditPost(props){
+    console.log(props)
     useEffect(
         ()=>{
-            Accesstoken()
             loadPost();
         },[]
     )
@@ -46,7 +28,6 @@ function EditPost(){
 
     const loadPost=async()=>{
         const result=await axios.get(`http://localhost:4000/posts/${id}`)
-        console.log(result)
         updateFormState(()=>({...formState, articleTitle:result.data.title, category:result.data.category,articleDesc:result.data.body}))   
    }
 
@@ -54,7 +35,7 @@ function EditPost(){
         e.preventDefault()
         const{articleTitle,articleDesc,category}=formState
         const input={
-            userId: parseInt(loguserid),           //id from login user
+            userId: parseInt(props.loguserid),           //id from login user
             title:articleTitle,
             category:category,
             body: articleDesc,
@@ -84,4 +65,4 @@ return(
 
 )
 }
-export default EditPost
+export default HOC(EditPost)

@@ -1,9 +1,8 @@
-import React,{useEffect, useState} from 'react'
+import React,{ useState} from 'react'
 import './FORMS/Login.css'
 import INPUT_LABEL from './ELEMENTS/InputFieldLabel'
 import Button from './ELEMENTS/Button'
-import axios from 'axios'
-import { useHistory } from 'react-router-dom'
+
 
 
 function Setting(){

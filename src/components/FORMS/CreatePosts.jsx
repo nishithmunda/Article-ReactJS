@@ -1,40 +1,17 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState} from 'react'
 import InputFieldLabel from '../ELEMENTS/InputFieldLabel'
 import TextArea from '../ELEMENTS/TextArea'
 import Button from '../ELEMENTS/Button'
 import axios from 'axios'
-import jwt from 'jwt-decode'
 import './Create_Edit_article.css'
 import {useHistory} from 'react-router-dom'
-
+import HOC from '../HOC'
 
     
 
-function CreatePosts(){
+function CreatePosts(props){
+    console.log(props)
     let history=useHistory();  
-    const [loguserid,setloguserid]=useState('')
-    const [verfiedUser,setverfiedUser]=useState(false);
-
-    function Accesstoken(){
-        try{
-        const token=localStorage.getItem("token")
-        if(token!==null){
-            setverfiedUser(true)
-        }
-        const id = jwt(token);
-        setloguserid(id.sub)
-         }
-
-        catch(error){
-            console.log(error)
-        } 
-    }
-    useEffect(
-        ()=>{
-            Accesstoken()
-        },[]
-    )
-
   
     const initialFormState={
         articleTitle:'',
@@ -50,7 +27,7 @@ function CreatePosts(){
         e.preventDefault()
         const{articleTitle,articleDesc,category}=formState
         const input={
-            userId: parseInt(loguserid),           //id from login user
+            userId: parseInt(props.loguserid),           //id from login user
             title:articleTitle,
             category:category,
             body: articleDesc,
@@ -69,10 +46,10 @@ function CreatePosts(){
     const{articleTitle,articleDesc,category}=formState
 return(
     <div id="create_edit_form" style={{ padding:'8px'}} >
-       {verfiedUser===false && (
+       {props.verifiedUser===false && (
            <h1> LOG-IN REQUIRED</h1>
        )}  
-        {verfiedUser===true && (
+        {props.verifiedUser===true && (
              <form onSubmit={handleCreatePost}>
              <InputFieldLabel  marginBottom="0px" label="ARTICLE NAME"                   marginLabelLeft='20px'  name='articleTitle'   value={articleTitle}      onChange={handle_onChange} required='true'/><br/>
              <InputFieldLabel  marginBottom="0px" label="SELECT CATEGORY"                marginLabelLeft='20px'  name='category'       value={category}          onChange={handle_onChange}/><br/>
@@ -84,4 +61,4 @@ return(
 
 )
 }
-export default CreatePosts
+export default HOC(CreatePosts)
